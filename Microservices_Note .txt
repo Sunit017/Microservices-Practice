@@ -1,0 +1,25 @@
+
+
+	-------------Microservice Architecture ----------
+	=================================================
+	
+- Building small small services is called microservices 
+- Indepedently deployable 
+- Each application can be tested differently
+- code change in one service doestn't need an entire application testing 
+- Scalable and independently deployable when the load increases 
+- Auto Scaling -(suppose i have one service which is getting more and more request so we can create another instance of it and deploy it into server 
+
+
+
+Load Balancer -:
+will do when the request will to server it will route the request to multiple server , in rush time instead of giving heavy load to one service , we can create multi deployment of 
+that service and give the acess to load balancer to send the request according to the requirement 
+
+RestTemplate -
+==============
+we need to communicate from 1 service to another service , for that rest call is needed so we use resttemplate 
+
+ModelMapper --
+============
+ModelMapper is 3rd party Api so spring IOC won't create bean , so we have to take care of it 
