@@ -13,14 +13,17 @@ import com.example.employee_service.Service.EmployeeService;
 
 @RestController
 public class EmployeeController {
+	
 	@Autowired
 	private EmployeeService employeeService;
 	
-	@GetMapping("employees/{id}")
+	
+	@GetMapping("/employees/{id}")
 	public ResponseEntity<EmployeeResponse> getById(@PathVariable("id") int id)
 	{
+		
 		EmployeeResponse employeeR= employeeService.getEmployeeById(id);
-		return new ResponseEntity<EmployeeResponse>(employeeR, HttpStatus.OK);
+		return ResponseEntity.status(HttpStatus.OK).body(employeeR);
 	}
 
 }

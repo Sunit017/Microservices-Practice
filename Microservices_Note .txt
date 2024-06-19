@@ -23,3 +23,20 @@ we need to communicate from 1 service to another service , for that rest call is
 ModelMapper --
 ============
 ModelMapper is 3rd party Api so spring IOC won't create bean , so we have to take care of it 
+
+MicroService Communication ---
+===================================
+
+RestTemplate - why not to use it ? Synchronous call , blocking call (Thread will be blocked , it won't go to the next thread utill get response )
+
+Blocking of thread ---
+Suppose you are making one request to a service and that service is also depend upone another service response so what happen there a service/ application
+have some number of threads now consider our application is having 3 threads and 3 threads are occupied if the 4 no people will make a request he can't 
+get response immediately because those 3 request have to complete first then only those 3 threads will available so that 4 request will go after that 
+
+Asynchronous call -- (web flux) / there is no thread block , if you are making call it won't wait for response , if any request come that time it 
+will take that request 
+
+Dynamic Port --
+=================
+server.port=0
