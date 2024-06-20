@@ -40,3 +40,27 @@ will take that request
 Dynamic Port --
 =================
 server.port=0
+
+
+Interview Question ---
+===========================================
+If one service making call to 2nd service and 2nd service taking very much time in response how can you solve this ?
+ANS--
+Timeouts:  Set appropriate timeout values for the HTTP client in Service A to avoid waiting indefinitely for a response from Service B.
+Circuit Breakers:  Use a circuit breaker pattern to prevent Service A from making calls to Service B when Service B is experiencing high latency or is down.
+
+Resilience4j is a popular library for implementing circuit breakers and other resilience patterns in Java.
+
+Combining these strategies, you can enhance the resilience and performance of your microservices:
+1. Timeouts to prevent long waits.
+2. Circuit Breakers to handle downstream failures gracefully.
+3. Asynchronous Calls to avoid blocking.
+4. Caching to reduce load and improve response times.
+5. Bulkheads to isolate resources and limit concurrent calls.
+6. Retries to handle transient errors.
+
+
+Feign Client --
+=======================
+Feign is a netflix product , used by netflix to make rest calls 
+netflix used to for there internal development now they make it open source 
