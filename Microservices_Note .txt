@@ -64,3 +64,10 @@ Feign Client --
 =======================
 Feign is a netflix product , used by netflix to make rest calls 
 netflix used to for there internal development now they make it open source 
+
+Add open fiegn starter in POM - 1st step 
+
+create an Interface write method inside of it and do proper mapping and also anotate that ineterface  with @feignClient (give value or name , uri path )
+
+@EnableFiegnClient - it will Scan your feignclients and generate an implemantation during run time  / create a proxy means spring will take care of 
+implemantation class of that feign Interface 
