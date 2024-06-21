@@ -71,3 +71,64 @@ create an Interface write method inside of it and do proper mapping and also ano
 
 @EnableFiegnClient - it will Scan your feignclients and generate an implemantation during run time  / create a proxy means spring will take care of 
 implemantation class of that feign Interface 
+
+
+Load Balancer ---------------  = Api Available ===== springcloud starter load balancer 
+=======================================
+Problem Statement 
+-----------------------------
+i have 2 service one is employee-service and another one is address-service , scale up the and created address-service 2 instance of it and deployed also
+what i want - when employee service is calling address service , it should call it in load balance way , it should make call address service which deployed 
+on 8081 , it should call the copy deployed on 8082
+Solution ---
+Then here the load balancer came to market , sometime i will request the address-service which deployed 8081 and sometime to 8082
+here client is employee-service will call address-service server in load balanced way 
+---- Spring cloud Load Balancer ------ / Ribbon (netflix) - spring removed ribbon in 2020 
+  
+  
+Problem --
+when you list out of server in application.properties file , but you can't hardcode the ip and port (server info) here as it changes
+dynamically in a distributed enviorment 
+
+calling from employee-service to address-service and we scaled up the address-service and deployed differnt differnt host and port number and done hardcode configuration
+later time we don't want all the address-service we only want 1 address-service when we are calling it throw some exception like server doesn't exist 
+  
+if one server wants to communicate with another then they need what is ip and port that server 
+  
+  
+Discovery Service ----   Api Available === Springcloud starter eureka client 
+==============================
+which holds all the services host and port number all the services registered in discovery server in map / list form 
+when serviceA wants to make a call to serviceB , serviceA will call the load balancer will do a query to dicovery server to find instance then dispatch to request 
+	serviceB (Server Side discovey )
+	
+(Client Side Load Balancing )--- serviceA calling to serviceB so first call to dicovery server get all details of serviceB , now serviceA call serviceB
+serviceB is having n number of instance and it knows which service can take load , serviceA only do load balancing , pickup the server and dispatch the request 
+so here serviceA is the client and doing load balancing this called client side load balancing ------------(Netflix eureka ) / under spring cloud 
+
+if again will do the call from A to B service then it won't go to discovery server , because in A service cached it is present and it will dispatch the request and 
+will also do load balancing 
+
+Problem Statement with Eureka Discvoery Server -------------------
+========================================================================
+Suppose we have deployed our application and the discovey server have all the information of all the services but this eureka service is down for reason ?
+Ans - we can deploye our application like how thses AWS people do like region and zone , same thing we can do scale up our eureka discovery server 
+       that is we called eurkea dicovery service cluster  and main thing is that - they can also sync up with each and others , if one  discovery service is down 
+	   then he can take data from another 
+
+How to create and configure dicovery server--------?
+=====================================================
+create a springboot project add eureka discovery server depedency over there 
+And in main file annotate with @eureka @EnableEurekaServer
+Then we have to tell eureka server as you are the only serveice which is running by configuring in application . properties file 
+server.port = 8761 (given by eureka people but we can change it )
+and  also the dependency we added that depedency internal also use eureka client so we have to make it false by configring application . properties 
+eureka .client .fetch-registry = false 
+
+Conclusion ----------------------
+=====================================================
+don't mix up load balancer with discovery service 
+Load Balancer job is do load balancing 
+service discovery job is to do discovering service info 
+when we build microservices call another microservices we need service discovery to find host and ip info ,
+if multiple hosts are available then the load balancer helps to pick one and make call in a load balance way 	
