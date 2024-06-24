@@ -109,6 +109,8 @@ so here serviceA is the client and doing load balancing this called client side 
 if again will do the call from A to B service then it won't go to discovery server , because in A service cached it is present and it will dispatch the request and 
 will also do load balancing 
 
+Eureka Server maintain data in registry  and registry look like (key , instancelist )
+
 Problem Statement with Eureka Discvoery Server -------------------
 ========================================================================
 Suppose we have deployed our application and the discovey server have all the information of all the services but this eureka service is down for reason ?
@@ -123,7 +125,16 @@ And in main file annotate with @eureka @EnableEurekaServer
 Then we have to tell eureka server as you are the only serveice which is running by configuring in application . properties file 
 server.port = 8761 (given by eureka people but we can change it )
 and  also the dependency we added that depedency internal also use eureka client so we have to make it false by configring application . properties 
-eureka .client .fetch-registry = false 
+
+eureka.client .fetch-registry = false   ---/// By writing this you are telling to dicovery service u don't need fetch any registry from another discovey service 
+you are only here 
+
+eureka.client.register-with-eureka = flase ---// by writting this you are saying you don't need to register your self in dicovery register service 	
+
+Building Eureka Client ----	add spring-cloud -starter -netflix-eureka -client depedency 	
+
+if your discovery server is not running port number 8761 , then those who are client to discovery server you have to configure them by using this properties 
+eureka.client.service-url.defaultZone=http://localhost:5000/eureka              // if you have multiple zone you can configure in defaultzone 	
 
 Conclusion ----------------------
 =====================================================
