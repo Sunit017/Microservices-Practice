@@ -2,6 +2,7 @@ package com.example.employee_service.configuration;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -17,18 +18,19 @@ public class EmployeeConfiguration {
 	{ 
 		return new ModelMapper();
 	}
+	@LoadBalanced
 	@Bean
 	public RestTemplate restTemplate()
 	{
 		return new RestTemplate();
 	}
 	
-	@Bean
-	public WebClient client()
-	{
-		return WebClient
-				.builder()
-				.baseUrl(addressBaseUrl)
-				.build();
-	}
+//	@Bean
+//	public WebClient client()
+//	{
+//		return WebClient
+//				.builder()
+//				.baseUrl(addressBaseUrl)
+//				.build();
+//	}
 }

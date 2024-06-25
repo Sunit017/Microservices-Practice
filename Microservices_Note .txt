@@ -1,5 +1,6 @@
 
 
+
 	-------------Microservice Architecture ----------
 	=================================================
 	
@@ -94,7 +95,12 @@ calling from employee-service to address-service and we scaled up the address-se
 later time we don't want all the address-service we only want 1 address-service when we are calling it throw some exception like server doesn't exist 
   
 if one server wants to communicate with another then they need what is ip and port that server 
-  
+
+@LoadBalanced -----
+==========================
+When we are doing load balancing using rest template we can annotate this annotation above the bean configuration of rest template , this job is pick the instance
+from discovery server and do load balancing 
+
   
 Discovery Service ----   Api Available === Springcloud starter eureka client 
 ==============================
@@ -109,7 +115,7 @@ so here serviceA is the client and doing load balancing this called client side 
 if again will do the call from A to B service then it won't go to discovery server , because in A service cached it is present and it will dispatch the request and 
 will also do load balancing 
 
-Eureka Server maintain data in registry  and registry look like (key , instancelist )
+Eureka Server maintain data in registry  and registry look like (key , instancelist)
 
 Problem Statement with Eureka Discvoery Server -------------------
 ========================================================================
@@ -131,10 +137,18 @@ you are only here
 
 eureka.client.register-with-eureka = flase ---// by writting this you are saying you don't need to register your self in dicovery register service 	
 
-Building Eureka Client ----	add spring-cloud -starter -netflix-eureka -client depedency 	
+Building Eureka Client ----	add spring-cloud -starter -netflix-eureka -client depedency //when you add this depedency ,the spring cloud load balancer has been
+pulled as transitive depedency which is doing load balancing internally 	
 
 if your discovery server is not running port number 8761 , then those who are client to discovery server you have to configure them by using this properties 
 eureka.client.service-url.defaultZone=http://localhost:5000/eureka              // if you have multiple zone you can configure in defaultzone 	
+
+--eureka client sends a heart beat in every 30 seconds to eureka server // if want to change default time eureka.instance.lease-renewal-interval-in-seconds=10 
+--eureka server remove the instance if it didn't receive any update for 90 seconds 	
+
+Delta Fetch -
+====================
+localhost:8761/eureka/apps/delta - when we hit this end point we will get recently added instances , not all the instances which are already on chache 
 
 Conclusion ----------------------
 =====================================================
@@ -143,3 +157,4 @@ Load Balancer job is do load balancing
 service discovery job is to do discovering service info 
 when we build microservices call another microservices we need service discovery to find host and ip info ,
 if multiple hosts are available then the load balancer helps to pick one and make call in a load balance way 	
+
