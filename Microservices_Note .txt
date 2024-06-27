@@ -158,3 +158,44 @@ service discovery job is to do discovering service info
 when we build microservices call another microservices we need service discovery to find host and ip info ,
 if multiple hosts are available then the load balancer helps to pick one and make call in a load balance way 	
 
+
+Actuator -----------
+=====================================
+Depedency - springboot actuator // adding this dependency we can check the health 
+it check the health of application and monitor our application 
+how to check - add properties on application.propeties file 
+management.endpoints.web.exposure.include=*
+
+Random LoadBalancer --
+==============================
+By default spring cloud load balancer give round robbin way 
+we can change it by Refarctor load balancer 
+
+
+
+Api Gateway---------------
+======================================
+An API Gateway is a central component in system design that helps manage and optimize the communication between clients and backend services. 
+It simplifies client interactions, enhances security, and provides various features for controlling and monitoring API traffic,
+making it an essential part of modern distributed systems and microservices architectures.
+
+Fault tolerance ---
+==================
+When we build a microservices architecture, there are a large number of small microservices, and they all need to communicate with one another.
+Let us consider there are 5 microservices 
+and microservices 2 is down at some point of time 
+All the other microservices are directly or indirectly dependent on it, so they all go down as well.
+The solution to this problem is to have a fallback in case a microservice fails. This aspect of a microservice is called fault tolerance
+
+Fault Tolerance can be achive by the help of circuit braker 
+
+Circuit breaker ----
+======================================
+There 3 states of circuit breaker 
+open , close , half open 
+
+one service is able to call another service then the circuit is close 
+if one service calling another service and did not get response from that service and called it till thresold time then it goes to open state 
+after 5 sec it goes to half open , if it get more than thresold time response then it take close state , if get less thresold time then it go to open state 
+
+Resilience4j library will use to develop circuitbreaker  
