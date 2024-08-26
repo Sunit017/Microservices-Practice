@@ -115,7 +115,7 @@ so here serviceA is the client and doing load balancing this called client side 
 if again will do the call from A to B service then it won't go to discovery server , because in A service cached it is present and it will dispatch the request and 
 will also do load balancing 
 
-Eureka Server maintain data in registry  and registry look like (key , instancelist)
+Eureka Server maintain data in registry  and registry look like (key , instancelist) like (service A , localhost:8080/address localhost:8081/address)
 
 Problem Statement with Eureka Discvoery Server -------------------
 ========================================================================
@@ -161,7 +161,7 @@ if multiple hosts are available then the load balancer helps to pick one and mak
 
 Actuator -----------
 =====================================
-Depedency - springboot actuator // adding this dependency we can check the health 
+Depedency - springboot actuator // adding this dependency we can check the health and monitor the application 
 it check the health of application and monitor our application 
 how to check - add properties on application.propeties file 
 management.endpoints.web.exposure.include=*
