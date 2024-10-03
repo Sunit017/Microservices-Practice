@@ -179,6 +179,34 @@ An API Gateway is a central component in system design that helps manage and opt
 It simplifies client interactions, enhances security, and provides various features for controlling and monitoring API traffic,
 making it an essential part of modern distributed systems and microservices architectures.
 
+In Simple Term ,It Accept the client api request and route to correct backend service based on api endpoint .
+
+It Help in API COMPOSITION -
+What does it means like you are visiting myorder section if the request is from mobile client then it will call Api to fetch product details and invoice Details
+if the request from desktop it will fetch product details and invoice details and rating and review , also api to fetch the recommendation 
+
+Api Gateway , can make life of client easier through Api Composition functionallity 
+
+Client - Api Gateway - Api gateway has the capability he can know like request is from mobile or request from desktop according to that he send response 
+
+AUTHENTICATION -
+
+Like OAUTH2 Flow -
+
+Client --> (Get the Access Token) Authorization Server --> (Pass Token In API Request) Api Gateway -->(Validate the Token) Authorization Server --> (If token valid ) call the services 
+
+RATE LIMIT -
+
+Brust limit - use to limit brust traffic , means number of concurrent request it can handle before it returns 429 
+Api throttling and api queue 
+
+
+Implementation --
+=====================
+spring-cloud-starter-gateway - add this depedency and also eureka client depedency
+
+and in application.properties file do - spring.cloud.gateway.discovery.locator.enabled=true // you are allowing api gateway to search 
+
 Fault tolerance ---
 ==================
 When we build a microservices architecture, there are a large number of small microservices, and they all need to communicate with one another.
