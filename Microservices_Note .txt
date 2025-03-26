@@ -227,3 +227,21 @@ if one service calling another service and did not get response from that servic
 after 5 sec it goes to half open , if it get more than thresold time response then it take close state , if get less thresold time then it go to open state 
 
 Resilience4j library will use to develop circuitbreaker  
+
+
+Config Server -
+==============
+A Config Server is a central place to manage externalized configuration for applications across all environments. It provides a way to store, retrieve, and manage application
+ configuration settings in a centralized and version-controlled manner, often using a Git repository or other storage backends
+ 
+What is Zipkin? -
+================
+Zipkin is a distributed tracing system used to track and monitor requests as they flow through microservices.
+It helps developers analyze latency issues, identify bottlenecks, and troubleshoot failures in distributed systems
+
+EVENT DRIVEN MICROSERVICES
+
+Based upon event only - event meaning (any process )
+2 types we implement 1. pub/sub model , 2.event streaming model 
+
+

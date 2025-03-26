@@ -1,0 +1,174 @@
+
+
+                                       📌 Microservices Interview Answers
+									 
+1️ . Basics of Microservices
+
+Q: What are Microservices?
+✅ Answer: Microservices is an architectural style where an application is composed of small, independent services that communicate with each other via APIs. 
+Each service is responsible for a specific business capability and can be deployed independently.
+
+Q: How are Microservices different from Monolithic Architecture?
+✅ Answer:
+Feature	    Monolithic Architecture	                   		Microservices Architecture
+Deployment	Entire application redeployed	           		Services deployed independently
+Scalability	Limited to vertical                        		scaling	Supports horizontal scaling
+Technology	Single tech stack	                            Services can use different stacks
+Resilience	Failure in one module affects the whole app 	Failures are isolated to a single service
+Development	Difficult to manage large codebase				Faster development & releases
+
+Q: What are the benefits of Microservices?
+✅ Answer:
+Scalability: Scale individual services instead of the whole application.
+Independent Deployment: Deploy and update services independently.
+Technology Flexibility: Different services can use different programming languages.
+Fault Isolation: A failure in one service doesn't bring down the entire application.
+
+Q: What challenges did you face while working with Microservices?
+✅ Answer:
+Inter-Service Communication: Managed using REST APIs, gRPC, or message brokers like Kafka.
+Data Consistency: Solved using Saga Pattern or Eventual Consistency.
+Service Discovery: Used Eureka or Consul for dynamic service registration.
+Security: Implemented JWT/OAuth2 authentication with Keycloak.
+Monitoring & Logging: Used ELK Stack (Elasticsearch, Logstash, Kibana) & Prometheus for observability.
+
+Q: What design patterns have you used in Microservices?
+✅ Answer:
+
+Pattern	             Purpose	                          Example Tools
+API Gateway	        Central entry point for APIs	          Spring Cloud Gateway, Zuul, Kong
+Circuit Breaker	    Prevents cascading failures	              Resilience4j, Hystrix (deprecated)
+Event-Driven        (Pub/Sub)	                              Asynchronous messaging	Kafka, RabbitMQ
+Saga Pattern	    Distributed transactions	              Kafka, Axon Framework
+Strangler Pattern	Monolith to Microservices migration	      API Gateway, Incremental replacement
+DB per Service	    Independent databases per microservice	  PostgreSQL, MongoDB, MySQL
+CQRS	            Separate read & write models	          Event Sourcing, Query Optimization
+Bulkhead	        Isolate failures	                      Resilience4j
+Aggregator	        Combine multiple responses into one       WebClient, GraphQL
+
+2 . API Communication & Inter-Service Communication
+
+Q: How do Microservices communicate with each other?
+✅ Answer:
+Synchronous Communication: REST APIs, gRPC.
+Asynchronous Communication: Kafka, RabbitMQ, or other message brokers.
+Service Discovery: Eureka, Consul, Zookeeper.
+
+Q: What is synchronous vs. asynchronous communication?
+✅ Synchronous Communication:
+The sender waits for the receiver to process the request and respond.
+Blocking operation.
+Example: REST API calls, JDBC queries.
+✅ Asynchronous Communication:
+The sender does not wait for an immediate response; the request is processed in the background.
+Non-blocking operation.
+Example: Kafka, RabbitMQ, WebSockets.
+👉 Analogy:
+Synchronous = Phone Call (Immediate response).
+Asynchronous = WhatsApp Message (Response can come later). 
+
+Q: When do you use REST, gRPC, or Message Queues?
+✅ Answer:
+Communication Type	        Use Case
+REST API (HTTP)	          Best for client-to-service calls
+gRPC	                  Faster, used for internal microservices calls
+Message Queue (Kafka)	  Best for event-driven & asynchronous processing
+
+Q: What is an API Gateway, and why do we need it?
+✅ Answer:
+API Gateway acts as a single entry point for all client requests and provides:
+✔ Authentication & Authorization (JWT, OAuth2)
+✔ Rate Limiting & Throttling
+✔ Load Balancing
+✔ Logging & Monitoring
+Example: Zuul, Spring Cloud Gateway, Kong, Nginx
+
+Q : How do you handle service discovery in Microservices?
+Answer : 
+1️ : Client-Side Service Discovery- 
+The client directly queries the service registry to find the instance of the service.
+The client load balances requests before sending them.
+2️ : Server-Side Service Discovery
+The client sends a request to a load balancer (e.g., API Gateway).
+The load balancer queries the service registry and forwards the request to the right service instance.
+
+3️ . Security in Microservices
+
+Q: How do you secure Microservices?
+✅ Answer:
+Authentication: JWT, OAuth2, Keycloak.
+Authorization: Role-based access control (RBAC).
+API Gateway Security: Secure all API requests using a gateway like Spring Cloud Gateway.
+Encryption: HTTPS & TLS.
+
+Q : What authentication and authorization mechanisms have you used (JWT, OAuth2, Keycloak)?
+🔹 JWT (JSON Web Token):
+Used for stateless authentication.
+The server issues a JWT, and clients include it in the Authorization header (Bearer Token).
+No need to store session data on the server.
+🔹 OAuth2.0:
+Industry standard for delegated authorization.
+Uses access tokens to grant limited access to services.
+Flows: Authorization Code (Best for Web Apps), Client Credentials, Password Grant (Deprecated).
+🔹 Keycloak:
+An Identity & Access Management (IAM) tool that supports SSO, OAuth2, OpenID Connect, and LDAP.
+Provides built-in user management, token validation, and role-based access control (RBAC).
+
+Q : How do you handle token propagation between Microservices?
+Ans - When a request passes through multiple microservices, the token must be propagated to ensure proper authentication & authorization.
+1️ . Forward JWT Token in Requests:
+Each microservice validates the token before processing the request.
+2️ . Use API Gateway for Centralized Authentication:
+The gateway handles token validation, so microservices don’t need to check tokens individually.
+Example: Spring Cloud Gateway + Keycloak
+
+Q : How do you prevent unauthorized access to services?
+✅ API Gateway Security:
+Validate JWT/OAuth2 tokens at the gateway level.
+Example: Spring Cloud Gateway + Keycloak.
+✅ RBAC (Role-Based Access Control):
+Restrict access based on user roles.
+✅ Rate Limiting & Throttling:
+Prevent abuse using RateLimiter (Resilience4j) or API Gateway throttling.
+✅ Zero Trust Architecture:
+Implement mTLS, API authentication, and identity verification for every request.
+
+4️ . Service Discovery & Load Balancing
+
+Q: What is Service Discovery?
+✅ Answer:
+It enables microservices to dynamically register and discover each other.
+Example: Eureka, Consul, Zookeeper.
+
+Q : Which tools have you used for service discovery
+Eureka (Netflix Eureka)
+Client-Side Service Discovery
+Works well with Spring Cloud.
+Microservices register with the Eureka Server.
+Clients query the Eureka Server to get service instances.
+
+What is the difference between client-side and server-side load balancing?
+✅ Answer:
+Load Balancing Type	          Explanation	                                 Example
+Client-Side Load Balancing	Client selects an available service instance	Ribbon (Netflix OSS)
+Server-Side Load Balancing	A centralized load balancer distributes traffic	Nginx, API Gateway
+
+How do you ensure high availability of Microservices?
+
+Load Balancing: 
+Distributes traffic across multiple instances.
+Spring Cloud LoadBalancer or NGINX for balancing requests.
+Circuit Breaker & Retry Mechanism
+Prevents failures from cascading using Resilience4j.
+Distributed Caching
+Reduce repeated requests using Redis 
+Zero Downtime Deployments
+Use Rolling Updates & Blue-Green Deployments in Kubernetes
+Logging & Monitoring
+Prometheus + Grafana for monitoring.
+ELK Stack (Elasticsearch, Logstash, Kibana) for centralized logging.
+
+5️ . Configuration Management
+
+Q. How do you manage configurations in Microservices?
+In Microservices, configurations should be centralized, dynamic, and environment-specific
