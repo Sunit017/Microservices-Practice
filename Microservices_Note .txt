@@ -61,20 +61,22 @@ Combining these strategies, you can enhance the resilience and performance of yo
 6. Retries to handle transient errors.
 
 
-Feign Client --
+FEIGN CLIENT -- 
 =======================
+For Declarative approach 
 Feign is a netflix product , used by netflix to make rest calls 
 netflix used to for there internal development now they make it open source 
 
-Add open fiegn starter in POM - 1st step 
+Add open fiegn starter depedency in POM - 1st step 
 
-create an Interface write method inside of it and do proper mapping and also anotate that ineterface  with @feignClient (give value or name , uri path )
+create an Interface write method inside of it and do proper mapping and also anotate that ineterface  with @feignClient (give value or name , uri path )//
+ex- @feignclient(name= "customerService") // The service you want to call 
 
-@EnableFiegnClient - it will Scan your feignclients and generate an implemantation during run time  / create a proxy means spring will take care of 
+@EnableFiegnClient - add in main file -  it will Scan your feignclients and generate an implemantation during run time  / create a proxy means spring will take care of 
 implemantation class of that feign Interface 
 
 
-Load Balancer ---------------  = Api Available ===== springcloud starter load balancer 
+LOAD BALANCER ---------------  = Api Available ===== springcloud starter load balancer 
 =======================================
 Problem Statement 
 -----------------------------
