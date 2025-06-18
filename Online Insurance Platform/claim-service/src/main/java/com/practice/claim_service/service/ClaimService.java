@@ -2,6 +2,7 @@ package com.practice.claim_service.service;
 
 import com.practice.claim_service.dto.ClaimRequestDTO;
 import com.practice.claim_service.dto.ClaimResponseDTO;
+import com.practice.claim_service.dto.UpdateClaimStatusRequest;
 import com.practice.claim_service.entity.Claim;
 import com.practice.claim_service.entity.ClaimStatus;
 import com.practice.claim_service.exception.ResourceNotFoundException;
@@ -61,6 +62,20 @@ public class ClaimService {
             Claim claim = claimRepository.findById(id)
                     .orElseThrow(()->new ResourceNotFoundException("Claim Not Found with Id " +id));
             return modelMapper.map(claim,ClaimResponseDTO.class);
+        }
+
+        public ClaimResponseDTO updateClaimStatus(Long id, UpdateClaimStatusRequest updateClaimStatusRequest)
+        {
+            Claim claim= claimRepository.findById(id).orElseThrow(
+                    ()-> new ResourceNotFoundException("Claim id is not found with Id" +id));
+            if (claim.getStatus() == ClaimStatus.APPROVED || claim.getStatus() == ClaimStatus.REJECTED) {
+                throw new IllegalStateException("Cannot update status. Claim is already processed.");
+            }
+            claim.setStatus(updateClaimStatusRequest.getStatus());
+            Claim updateClaim= claimRepository.save(claim);
+            return modelMapper.map(updateClaim,ClaimResponseDTO.class);
+
+
         }
     }
 

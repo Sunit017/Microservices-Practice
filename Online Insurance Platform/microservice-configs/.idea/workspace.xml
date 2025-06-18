@@ -5,46 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a20d726-3747-4dc3-808c-c2408e502c75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/config/MapperConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/controller/ClaimController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/dto/ClaimRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/dto/ClaimResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/dto/PolicyDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/dto/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/entity/Claim.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/entity/ClaimStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/exception/ResourceNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/external/client/PolicyClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/external/client/UserClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/repository/ClaimRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/service/ClaimService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../claim-service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../claim-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/microservice-configs.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/claim-service.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/policy-service.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../policy-service/src/main/java/com/practice/policy_service/PolicyServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../policy-service/src/main/java/com/practice/policy_service/config/MapperConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../policy-service/src/main/java/com/practice/policy_service/controller/PolicyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../policy-service/src/main/java/com/practice/policy_service/dto/PolicyDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../policy-service/src/main/java/com/practice/policy_service/entity/Policy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../policy-service/src/main/java/com/practice/policy_service/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../policy-service/src/main/java/com/practice/policy_service/exception/ResourceNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../policy-service/src/main/java/com/practice/policy_service/repository/PolicyRepositroy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../policy-service/src/main/java/com/practice/policy_service/service/PolicyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/practice/user_service/config/ModelMapperConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/practice/user_service/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/practice/user_service/dto/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/practice/user_service/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/practice/user_service/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/practice/user_service/exception/ResourceNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/practice/user_service/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/practice/user_service/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/com/practice/auth_service/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/com/practice/auth_service/dto/AuthResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/com/practice/auth_service/dto/LoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/com/practice/auth_service/dto/RegisterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/com/practice/auth_service/entity/Users.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/com/practice/auth_service/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/com/practice/auth_service/exception/UserAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/com/practice/auth_service/exception/UsernameNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/com/practice/auth_service/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/com/practice/auth_service/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/com/practice/auth_service/security/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/com/practice/auth_service/security/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/com/practice/auth_service/service/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/com/practice/auth_service/service/CustomUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/resources/bootstarp.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/dto/UpdateClaimStatusRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Learning and Project document for microservices.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../Learning and Project document for microservices.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/controller/ClaimController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/controller/ClaimController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/service/ClaimService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../claim-service/src/main/java/com/practice/claim_service/service/ClaimService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +34,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
   <component name="ProjectId" id="2wUnNjo9J5fUvJhVCQVURX3mY7J" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -62,7 +45,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/sunitp/Desktop/Microservices-Practice/Online Insurance Platform/microservice-configs"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
