@@ -5,10 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a20d726-3747-4dc3-808c-c2408e502c75" name="Changes" comment="auth-service added for security">
-      <change afterPath="$PROJECT_DIR$/../apiGateway/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../auth-service/src/main/java/com/practice/auth_service/AuthServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Learning and Project document for microservices.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../Learning and Project document for microservices.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
